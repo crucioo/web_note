@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>单双击按钮</title>
+</head>
+<body>
+  单击or双击按钮：<button onclick="clickEvent()">按钮</button>
+</body>
+</html>
+
+<script>
+  let timeout = undefined
+  function clickEvent() {
+    if (!dbclick()) timeout = singleclick()
+  }
+  function dbclick() {
+    if(timeout) {
+      clearTimeout(timeout)
+      timeout = undefined
+      alert('双击成功！')
+      return true
+    }
+    return false
+  }
+  function singleclick() {
+    let interval = 300 //设置有效双击间隔时间
+    return setTimeout(() => {
+      alert('单击成功！')
+      timeout = undefined
+    }, interval) 
+  }
+</script>
