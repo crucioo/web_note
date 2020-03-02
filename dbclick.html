@@ -18,7 +18,7 @@
   }
   function dbclick() {
     if(timeout) {
-      clearTimeout(timeout)
+      clearTimeout(timeout) //清除单击事件
       timeout = undefined
       alert('双击成功！')
       return true
